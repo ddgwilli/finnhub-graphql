@@ -11,6 +11,7 @@ const peers = require('./peers.js');
 const metrics = require('./metrics.js');
 const { endpoint: investorOwnership } = require('./investor_ownership.js');
 const fundOwnership = require('./fund_ownership.js');
+const ipoCalendar = require('./ipo_calendar.js');
 
 const query = new graphql.GraphQLObjectType({
   name: 'Query',
@@ -26,6 +27,7 @@ const query = new graphql.GraphQLObjectType({
     metrics,
     investorOwnership,
     fundOwnership,
+    ipoCalendar,
   },
 });
 
