@@ -22,10 +22,12 @@ const executiveType = new graphql.GraphQLObjectType({
   },
 });
 
-module.exports = {
+const endpoint = {
   type: new graphql.GraphQLList(executiveType),
   resolve: executivesResolver,
   args: {
     symbol: { type: graphql.GraphQLNonNull(graphql.GraphQLString) },
   }
 }
+
+module.exports = { endpoint, type: executiveType };

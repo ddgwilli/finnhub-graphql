@@ -20,10 +20,12 @@ const majorDevelopmentType = new graphql.GraphQLObjectType({
   }
 });
 
-module.exports = {
+const endpoint = {
   type: new graphql.GraphQLList(majorDevelopmentType),
   resolve: majorDevelopmentsResolver,
   args: {
     symbol: { type: graphql.GraphQLNonNull(graphql.GraphQLString) },
   }
 }
+
+module.exports = { endpoint, type: majorDevelopmentType };

@@ -23,7 +23,7 @@ const ipoType = new graphql.GraphQLObjectType({
   },
 });
 
-module.exports = {
+const endpoint = {
   type: new graphql.GraphQLList(ipoType),
   resolve: ipoCalendarResolver,
   args: {
@@ -31,3 +31,5 @@ module.exports = {
     to: { type: graphql.GraphQLNonNull(graphql.GraphQLString) },
   }
 }
+
+module.exports = { endpoint, type: ipoType };

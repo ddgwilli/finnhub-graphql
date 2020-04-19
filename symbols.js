@@ -19,7 +19,9 @@ const symbolType = new graphql.GraphQLObjectType({
   },
 });
 
-module.exports = {
+const endpoint = {
   type: new graphql.GraphQLList(symbolType),
   resolve: symbolsResolver,
 }
+
+module.exports = { endpoint, type: symbolType };

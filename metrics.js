@@ -213,7 +213,7 @@ const metricCategoryType = new graphql.GraphQLEnumType({
   }
 });
 
-module.exports = {
+const endpoint = {
   type: metricType,
   resolve: metricsResolver,
   args: {
@@ -221,3 +221,5 @@ module.exports = {
     metric: { type: graphql.GraphQLNonNull(metricCategoryType) },
   }
 }
+
+module.exports = { endpoint, type: metricType };

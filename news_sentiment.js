@@ -39,10 +39,12 @@ const newsSentimentType = new graphql.GraphQLObjectType({
   }
 });
 
-module.exports = {
+const endpoint = {
   type: newsSentimentType,
   resolve: newsSentimentResolver,
   args: {
     symbol: { type: graphql.GraphQLNonNull(graphql.GraphQLString) },
   }
 }
+
+module.exports = { endpoint, type: newsSentimentType };

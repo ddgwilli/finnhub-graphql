@@ -12,10 +12,12 @@ const companyNewsResolver = (_, { symbol }) => {
   return getCompanyNews(symbol);
 }
 
-module.exports = {
+const endpoint = {
   type: new graphql.GraphQLList(companyNewsType),
   resolve: companyNewsResolver,
   args: {
     symbol: { type: graphql.GraphQLNonNull(graphql.GraphQLString) },
   }
 }
+
+module.exports = { endpoint, type: companyNewsType };

@@ -12,7 +12,7 @@ const fundOwnershipResolver = (_, { symbol, limit }) => {
   return getFundOwnership(symbol);
 }
 
-module.exports = {
+const endpoint = {
   type: new graphql.GraphQLList(fundOwnershipType),
   resolve: fundOwnershipResolver,
   args: {
@@ -20,3 +20,5 @@ module.exports = {
     limit: { type: graphql.GraphQLInt },
   }
 }
+
+module.exports = { endpoint, type: fundOwnershipType };

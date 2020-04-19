@@ -19,7 +19,9 @@ const exchangeType = new graphql.GraphQLObjectType({
   },
 });
 
-module.exports = {
+const endpoint = {
   type: new graphql.GraphQLList(exchangeType),
   resolve: exchangesResolver,
 }
+
+module.exports = { endpoint, type: exchangeType };

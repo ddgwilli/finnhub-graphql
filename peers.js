@@ -10,10 +10,12 @@ const peersResolver = (_, { symbol }) => {
   return getPeers(symbol);
 }
 
-module.exports = {
+const endpoint = {
   type: new graphql.GraphQLList(graphql.GraphQLString),
   resolve: peersResolver,
   args: {
     symbol: { type: graphql.GraphQLNonNull(graphql.GraphQLString) },
   }
 }
+
+module.exports = { endpoint, type: graphql.GraphQLString };
