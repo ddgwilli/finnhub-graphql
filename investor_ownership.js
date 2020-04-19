@@ -1,13 +1,13 @@
 const graphql = require('graphql');
 const fetch = require('node-fetch');
 
-const getInvestorOwnership = (symbol, limit = null) => {
+const getInvestorOwnership = (symbol, limit) => {
   return fetch(`https://finnhub.io/api/v1/stock/investor-ownership?symbol=${symbol}&limit=${limit}&token=bqe9apvrh5rashj8u070`)
   .then(response => response.json()).then(json => json["ownership"]);
 }
 
 const investorOwnershipResolver = (_, { symbol, limit }) => {
-  return getInvestorOwnership(symbol);
+  return getInvestorOwnership(symbol, limit);
 }
 
 const investorOwnershipType = new graphql.GraphQLObjectType({
@@ -19,10 +19,11 @@ const investorOwnershipType = new graphql.GraphQLObjectType({
     turnoverPercent: { type: graphql.GraphQLFloat },
     change: { type: graphql.GraphQLInt},
     filingDate: { type: graphql.GraphQLString },
+    portfolioPercent: { type: graphql.GraphQLString },
   },
 });
 
-module.exports = {
+const endpoint = {
   type: new graphql.GraphQLList(investorOwnershipType),
   resolve: investorOwnershipResolver,
   args: {
@@ -30,3 +31,5 @@ module.exports = {
     limit: { type: graphql.GraphQLInt },
   }
 }
+
+module.exports = { endpoint, type: investorOwnershipType };

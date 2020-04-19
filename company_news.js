@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const fetch = require('node-fetch');
 
-const { type: newsType } = require('./news.js');
+const { type: companyNewsType } = require('./news.js');
 
 const getCompanyNews = (symbol) => {
   return fetch(`https://finnhub.io/api/v1/news/${symbol}?token=bqe9apvrh5rashj8u070`)
@@ -13,7 +13,7 @@ const companyNewsResolver = (_, { symbol }) => {
 }
 
 module.exports = {
-  type: new graphql.GraphQLList(newsType),
+  type: new graphql.GraphQLList(companyNewsType),
   resolve: companyNewsResolver,
   args: {
     symbol: { type: graphql.GraphQLNonNull(graphql.GraphQLString) },

@@ -9,7 +9,8 @@ const majorDevelopments = require('./major_developments.js');
 const newsSentiment = require('./news_sentiment.js');
 const peers = require('./peers.js');
 const metrics = require('./metrics.js');
-const investorOwnership = require('./investor_ownership.js');
+const { endpoint: investorOwnership } = require('./investor_ownership.js');
+const fundOwnership = require('./fund_ownership.js');
 
 const query = new graphql.GraphQLObjectType({
   name: 'Query',
@@ -24,6 +25,7 @@ const query = new graphql.GraphQLObjectType({
     peers,
     metrics,
     investorOwnership,
+    fundOwnership,
   },
 });
 
