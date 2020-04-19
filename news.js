@@ -18,7 +18,7 @@ const newsCategoryType = new graphql.GraphQLEnumType({
     crypto: { value: 'crypto'},
     merger: { value: 'merger'},
   }
-})
+});
 
 const newsType = new graphql.GraphQLObjectType({
   name: 'News',

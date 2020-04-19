@@ -8,6 +8,7 @@ const companyNews = require('./company_news.js');
 const majorDevelopments = require('./major_developments.js');
 const newsSentiment = require('./news_sentiment.js');
 const peers = require('./peers.js');
+const metrics = require('./metrics.js');
 
 const query = new graphql.GraphQLObjectType({
   name: 'Query',
@@ -20,6 +21,7 @@ const query = new graphql.GraphQLObjectType({
     majorDevelopments,
     newsSentiment,
     peers,
+    metrics,
   },
 });
 
