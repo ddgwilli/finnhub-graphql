@@ -51,7 +51,10 @@ const getMetrics = (symbol, metric) => {
   });
 }
 
-const metricsResolver = (_, { symbol, metric }) => {
+const metricsResolver = (parent, args) => {
+  const symbol = args["symbol"] || parent["symbol"];
+  const metric = args["metric"];
+
   return getMetrics(symbol, metric);
 }
 
@@ -222,4 +225,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: metricType };
+module.exports = { endpoint, type: metricType, resolver: metricsResolver, metricCategoryType };

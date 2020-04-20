@@ -8,7 +8,9 @@ const getCompanyNews = (symbol) => {
   .then(response => {return response.json()});
 }
 
-const companyNewsResolver = (_, { symbol }) => {
+const companyNewsResolver = (parent, args) => {
+  const symbol = args["symbol"] || parent["symbol"];
+
   return getCompanyNews(symbol);
 }
 
@@ -20,4 +22,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: companyNewsType };
+module.exports = { endpoint, type: companyNewsType, resolver: companyNewsResolver };

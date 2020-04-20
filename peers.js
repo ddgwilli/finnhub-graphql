@@ -6,7 +6,9 @@ const getPeers = (symbol) => {
   .then(response => {return response.json()});
 }
 
-const peersResolver = (_, { symbol }) => {
+const peersResolver = (parent, args) => {
+  const symbol = args["symbol"] || parent["symbol"];
+
   return getPeers(symbol);
 }
 
@@ -18,4 +20,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: graphql.GraphQLString };
+module.exports = { endpoint, type: graphql.GraphQLString, resolver: peersResolver };

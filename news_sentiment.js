@@ -6,7 +6,9 @@ const getNewsSentiment = (symbol) => {
   .then(response => {return response.json()});
 }
 
-const newsSentimentResolver = (_, { symbol }) => {
+const newsSentimentResolver = (parent, args) => {
+  const symbol = args["symbol"] || parent["symbol"];
+
   return getNewsSentiment(symbol);
 }
 
@@ -47,4 +49,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: newsSentimentType };
+module.exports = { endpoint, type: newsSentimentType, resolver: newsSentimentResolver };

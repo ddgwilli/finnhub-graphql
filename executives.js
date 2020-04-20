@@ -6,7 +6,9 @@ const getExecutives = (symbol) => {
   .then(response => response.json()).then(json => json["executive"]);
 }
 
-const executivesResolver = (_, { symbol }) => {
+const executivesResolver = (parent, args) => {
+  const symbol = args["symbol"] || parent["symbol"];
+
   return getExecutives(symbol);
 }
 
@@ -30,4 +32,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: executiveType };
+module.exports = { endpoint, type: executiveType, resolver: executivesResolver };

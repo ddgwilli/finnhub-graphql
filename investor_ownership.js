@@ -6,7 +6,10 @@ const getInvestorOwnership = (symbol, limit) => {
   .then(response => response.json()).then(json => json["ownership"]);
 }
 
-const investorOwnershipResolver = (_, { symbol, limit }) => {
+const investorOwnershipResolver = (parent, args) => {
+  const symbol = args["symbol"] || parent["symbol"];
+  const limit = args["limit"]
+  
   return getInvestorOwnership(symbol, limit);
 }
 
@@ -32,4 +35,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: investorOwnershipType };
+module.exports = { endpoint, type: investorOwnershipType, resolver: investorOwnershipResolver };

@@ -6,7 +6,9 @@ const getMajorDevelopments = (symbol) => {
   .then(response => response.json()).then(json => json["majorDevelopment"]);
 }
 
-const majorDevelopmentsResolver = (_, { symbol }) => {
+const majorDevelopmentsResolver = (parent, args) => {
+  const symbol = args["symbol"] || parent["symbol"];
+
   return getMajorDevelopments(symbol);
 }
 
@@ -28,4 +30,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: majorDevelopmentType };
+module.exports = { endpoint, type: majorDevelopmentType, resolver: majorDevelopmentsResolver };

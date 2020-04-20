@@ -8,8 +8,11 @@ const getFundOwnership = (symbol, limit) => {
   .then(response => response.json()).then(json => json["ownership"]);
 }
 
-const fundOwnershipResolver = (_, { symbol, limit }) => {
-  return getFundOwnership(symbol);
+const fundOwnershipResolver = (parent, args) => {
+  const symbol = args["symbol"] || parent["symbol"];
+  const limit = args["limit"]
+
+  return getFundOwnership(symbol, limit);
 }
 
 const endpoint = {
@@ -21,4 +24,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: fundOwnershipType };
+module.exports = { endpoint, type: fundOwnershipType, resolver: fundOwnershipResolver };
