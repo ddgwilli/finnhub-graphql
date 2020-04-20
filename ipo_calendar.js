@@ -32,4 +32,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: ipoType };
+module.exports = { endpoint, type: new graphql.GraphQLList(ipoType) };

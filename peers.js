@@ -20,4 +20,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: graphql.GraphQLString, resolver: peersResolver };
+module.exports = { endpoint, type: new graphql.GraphQLList(graphql.GraphQLString), resolver: peersResolver };

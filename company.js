@@ -17,11 +17,11 @@ const companyResolver = (_, { symbol }) => {
 const companyType = new graphql.GraphQLObjectType({
   name: 'Company',
   fields: {
-    executives: { type: new graphql.GraphQLList(executiveType), resolve: executivesResolver },
-    news: { type: new graphql.GraphQLList(companyNewsType), resolve: companyNewsResolver },
-    fundOwnership: { type: new graphql.GraphQLList(fundOwnershipType), resolve: fundOwnershipResolver },
-    investorOwnership: { type: new graphql.GraphQLList(investorOwnershipType), resolve: investorOwnershipResolver },
-    majorDevelopments: { type: new graphql.GraphQLList(majorDevelopmentsType), resolve: majorDevelopmentsResolver },
+    executives: { type: executiveType, resolve: executivesResolver },
+    news: { type: companyNewsType, resolve: companyNewsResolver },
+    fundOwnership: { type: fundOwnershipType, resolve: fundOwnershipResolver },
+    investorOwnership: { type: investorOwnershipType, resolve: investorOwnershipResolver },
+    majorDevelopments: { type: majorDevelopmentsType, resolve: majorDevelopmentsResolver },
     newsSentiment: { type: newsSentimentType, resolve: newsSentimentResolver },
     metrics: { 
       type: metricsType,
@@ -30,7 +30,7 @@ const companyType = new graphql.GraphQLObjectType({
         metric: { type: graphql.GraphQLNonNull(metricCategoryType) },
       }
     },
-    peers: { type: new graphql.GraphQLList(peersType), resolve: peersResolver },
+    peers: { type: peersType, resolve: peersResolver },
   },
 });
 

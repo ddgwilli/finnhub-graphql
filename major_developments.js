@@ -30,4 +30,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: majorDevelopmentType, resolver: majorDevelopmentsResolver };
+module.exports = { endpoint, type: new graphql.GraphQLList(majorDevelopmentType), resolver: majorDevelopmentsResolver };

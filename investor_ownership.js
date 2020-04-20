@@ -35,4 +35,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: investorOwnershipType, resolver: investorOwnershipResolver };
+module.exports = { endpoint, type: new graphql.GraphQLList(investorOwnershipType), resolver: investorOwnershipResolver };

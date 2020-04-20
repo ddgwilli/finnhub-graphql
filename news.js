@@ -44,4 +44,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: newsType };
+module.exports = { endpoint, type: new graphql.GraphQLList(newsType) };

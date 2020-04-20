@@ -32,4 +32,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: executiveType, resolver: executivesResolver };
+module.exports = { endpoint, type: new graphql.GraphQLList(executiveType), resolver: executivesResolver };

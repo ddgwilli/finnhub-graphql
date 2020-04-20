@@ -24,4 +24,4 @@ const endpoint = {
   resolve: symbolsResolver,
 }
 
-module.exports = { endpoint, type: symbolType };
+module.exports = { endpoint, type: new graphql.GraphQLList(symbolType) };

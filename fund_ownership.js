@@ -24,4 +24,4 @@ const endpoint = {
   }
 }
 
-module.exports = { endpoint, type: fundOwnershipType, resolver: fundOwnershipResolver };
+module.exports = { endpoint, type: new graphql.GraphQLList(fundOwnershipType), resolver: fundOwnershipResolver };
