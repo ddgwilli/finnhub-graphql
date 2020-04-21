@@ -2,7 +2,7 @@ const graphql = require('graphql');
 const fetch = require('node-fetch');
 
 const getNews = (category, minId = 0) => {
-  return fetch(`https://finnhub.io/api/v1/news?category=${category}&minId=${minId}&token=bqe9apvrh5rashj8u070`)
+  return fetch(`https://finnhub.io/api/v1/news?category=${category}&minId=${minId}&token=bqf4ig7rh5rashj94d9g`)
   .then(response => {return response.json()});
 }
 

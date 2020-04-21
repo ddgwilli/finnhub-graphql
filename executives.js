@@ -2,7 +2,7 @@ const graphql = require('graphql');
 const fetch = require('node-fetch');
 
 const getExecutives = (symbol) => {
-  return fetch(`https://finnhub.io/api/v1/stock/executive?symbol=${symbol}&token=bqe9apvrh5rashj8u070`)
+  return fetch(`https://finnhub.io/api/v1/stock/executive?symbol=${symbol}&token=bqf4ig7rh5rashj94d9g`)
   .then(response => response.json()).then(json => json["executive"]);
 }
 

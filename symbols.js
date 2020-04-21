@@ -2,7 +2,7 @@ const graphql = require('graphql');
 const fetch = require('node-fetch');
 
 const getSymbols = () => {
-  return fetch('https://finnhub.io/api/v1/stock/symbol?exchange=US&token=bqe9apvrh5rashj8u070')
+  return fetch('https://finnhub.io/api/v1/stock/symbol?exchange=US&token=bqf4ig7rh5rashj94d9g')
   .then(response => {return response.json()});
 }
 

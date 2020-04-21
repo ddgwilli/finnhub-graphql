@@ -2,7 +2,7 @@ const graphql = require('graphql');
 const fetch = require('node-fetch');
 
 const getMajorDevelopments = (symbol) => {
-  return fetch(`https://finnhub.io/api/v1/major-development?symbol=${symbol}&token=bqe9apvrh5rashj8u070`)
+  return fetch(`https://finnhub.io/api/v1/major-development?symbol=${symbol}&token=bqf4ig7rh5rashj94d9g`)
   .then(response => response.json()).then(json => json["majorDevelopment"]);
 }
 

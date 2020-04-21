@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const { type: fundOwnershipType } = require('./investor_ownership.js');
 
 const getFundOwnership = (symbol, limit) => {
-  return fetch(`https://finnhub.io/api/v1/stock/fund-ownership?symbol=${symbol}&limit=${limit}&token=bqe9apvrh5rashj8u070`)
+  return fetch(`https://finnhub.io/api/v1/stock/fund-ownership?symbol=${symbol}&limit=${limit}&token=bqf4ig7rh5rashj94d9g`)
   .then(response => response.json()).then(json => json["ownership"]);
 }
 

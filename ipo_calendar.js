@@ -2,7 +2,7 @@ const graphql = require('graphql');
 const fetch = require('node-fetch');
 
 const getIpoCalendar = (from, to) => {
-  return fetch(`https://finnhub.io/api/v1/calendar/ipo?from=${from}&to=${to}&token=bqe9apvrh5rashj8u070`)
+  return fetch(`https://finnhub.io/api/v1/calendar/ipo?from=${from}&to=${to}&token=bqf4ig7rh5rashj94d9g`)
   .then(response => response.json()).then(json => json["ipoCalendar"]);
 }
 

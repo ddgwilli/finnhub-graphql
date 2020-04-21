@@ -13,6 +13,7 @@ const { endpoint: investorOwnership } = require('./investor_ownership.js');
 const { endpoint: fundOwnership } = require('./fund_ownership.js');
 const { endpoint: ipoCalendar } = require('./ipo_calendar.js');
 const { endpoint: company } = require('./company.js');
+const { endpoint: companies } = require('./companies.js');
 
 const query = new graphql.GraphQLObjectType({
   name: 'Query',
@@ -30,6 +31,7 @@ const query = new graphql.GraphQLObjectType({
     fundOwnership,
     ipoCalendar,
     company,
+    companies,
   },
 });
 

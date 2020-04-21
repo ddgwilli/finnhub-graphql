@@ -42,7 +42,7 @@ const reformatBrokenFieldNames = (metrics) => {
 }
 
 const getMetrics = (symbol, metric) => {
-  return fetch(`https://finnhub.io/api/v1/stock/metric?symbol=${symbol}&metric=${metric}&token=bqe9apvrh5rashj8u070`)
+  return fetch(`https://finnhub.io/api/v1/stock/metric?symbol=${symbol}&metric=${metric}&token=bqf4ig7rh5rashj94d9g`)
   .then(response => response.json()).then(json => {
     const metrics = json["metric"];
     reformatBrokenFieldNames(metrics);
@@ -52,6 +52,7 @@ const getMetrics = (symbol, metric) => {
 }
 
 const metricsResolver = (parent, args) => {
+  console.log(parent);
   const symbol = args["symbol"] || parent["symbol"];
   const metric = args["metric"];
 

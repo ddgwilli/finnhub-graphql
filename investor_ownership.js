@@ -2,7 +2,7 @@ const graphql = require('graphql');
 const fetch = require('node-fetch');
 
 const getInvestorOwnership = (symbol, limit) => {
-  return fetch(`https://finnhub.io/api/v1/stock/investor-ownership?symbol=${symbol}&limit=${limit}&token=bqe9apvrh5rashj8u070`)
+  return fetch(`https://finnhub.io/api/v1/stock/investor-ownership?symbol=${symbol}&limit=${limit}&token=bqf4ig7rh5rashj94d9g`)
   .then(response => response.json()).then(json => json["ownership"]);
 }
 

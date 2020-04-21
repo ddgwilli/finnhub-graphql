@@ -14,9 +14,14 @@ const companyResolver = (_, { symbol }) => {
   return { symbol };
 }
 
+const symbolResolver = (parent) => {
+  return parent["symbol"];
+}
+
 const companyType = new graphql.GraphQLObjectType({
   name: 'Company',
   fields: {
+    symbol: { type: graphql.GraphQLString, resolve: symbolResolver },
     executives: { type: executiveType, resolve: executivesResolver },
     news: { type: companyNewsType, resolve: companyNewsResolver },
     fundOwnership: { type: fundOwnershipType, resolve: fundOwnershipResolver },

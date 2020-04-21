@@ -2,7 +2,7 @@ const graphql = require('graphql');
 const fetch = require('node-fetch');
 
 const getExchanges = () => {
-  return fetch('https://finnhub.io/api/v1/stock/exchange?token=bqe9apvrh5rashj8u070')
+  return fetch('https://finnhub.io/api/v1/stock/exchange?token=bqf4ig7rh5rashj94d9g')
   .then(response => {return response.json()});
 }
 
